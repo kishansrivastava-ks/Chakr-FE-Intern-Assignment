@@ -63,6 +63,7 @@ const Sidebar = styled.div<SidebarProps>`
   justify-content: space-between;
   align-items: ${(props) => (props.isSidebarOpen ? "flex-start" : "center")};
   transition: all 0.3s ease-in-out;
+  border-right: 1px solid #666;
 `;
 
 const Header = styled.header`
@@ -91,7 +92,9 @@ const Main = styled.main`
   scrollbar-width: none;
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.background};
-  border: 1px solid ${({ theme }) => theme.color};
+  /* border: 1px solid ${({ theme }) => theme.color}; */
+  /* border: 1px solid #666; */
+  border-top: 1px solid #666;
 
   &::-webkit-scrollbar {
     display: none;
