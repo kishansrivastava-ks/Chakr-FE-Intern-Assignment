@@ -98,26 +98,25 @@ const TableHead = styled.thead`
     min-width: 7rem;
     width: max-content;
     font-size: smaller;
-    /* margin-right: 3rem; */
-    /* background-color: red; */
   }
 `;
 
 const TableBody = styled.tbody`
   tr {
-    font-size: 0.7rem;
-    /* padding: 0 0.5rem; */
-    /* max-height: 2rem; */
-    /* overflow: hidden; */
+    font-size: 0.8rem;
+    /* background-color: yellow; */
+    height: 3rem;
+    overflow: hidden;
     &:hover {
-      background-color: #2a2a2a;
+      /* background-color: #2a2a2a; */
       cursor: pointer;
     }
   }
 
   td {
+    /* padding: 0.5rem; */
     border-bottom: 1px solid #333;
-    /* margin-right: 5rem; */
+    margin-right: 5rem;
   }
 `;
 
@@ -125,11 +124,14 @@ const FixedColumn = styled.th`
   position: sticky;
   left: 0;
   background-color: #171717;
-  z-index: 2;
 `;
 
 const FixedColumnData = styled.td`
-  position: sticky;
+  /* position: sticky; */
+  &:hover {
+    cursor: pointer;
+    font-weight: 600;
+  }
   left: 0;
   background-color: #171717;
   /* z-index: 1; */

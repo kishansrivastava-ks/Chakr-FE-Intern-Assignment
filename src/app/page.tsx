@@ -171,7 +171,7 @@ const SidebarSectionHeading = styled.h4`
 //   }
 // };
 
-export const Home = ({ children }: HomeProps) => {
+const HomeSample = ({ children }: HomeProps) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   // const router = useRouter();
 
@@ -277,3 +277,139 @@ export const Home = ({ children }: HomeProps) => {
     </Container>
   );
 };
+
+function Home2() {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  // const router = useRouter();
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
+  // const { title, icon } = getTitleAndIcon(router.pathname);
+
+  return (
+    <Container isSidebarOpen={isSidebarOpen}>
+      <Header>
+        <HeaderTitle>
+          <HeaderIcon>
+            <FaBuilding />
+          </HeaderIcon>
+          <div>Companies</div>
+        </HeaderTitle>
+        <AddIcon>
+          <FaPlus />
+        </AddIcon>
+      </Header>
+      <Sidebar isSidebarOpen={isSidebarOpen}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Logo
+            isSidebarOpen={isSidebarOpen}
+            src="https://img.icons8.com/?size=100&id=30840&format=png&color=FFFFFF"
+          />
+          <Title isSidebarOpen={isSidebarOpen}>Twenty</Title>
+          <ToggleButton isSidebarOpen={isSidebarOpen} onClick={toggleSidebar}>
+            <FaBars />
+          </ToggleButton>
+        </div>
+        {isSidebarOpen && (
+          <div
+            style={{ marginTop: "1rem", marginBottom: "auto", width: "100%" }}
+          >
+            <SidebarContent>
+              <SidebarSection>
+                <Link href="/settings" passHref>
+                  <SidebarItem>
+                    <FaCog />
+                    Settings
+                  </SidebarItem>
+                </Link>
+                {/* <Link href="/search" passHref>
+                    <SidebarItem>
+                      <FaSearch />
+                      Search
+                    </SidebarItem>
+                  </Link> */}
+                <SearchSidebarItem />
+                <Link href="/tasks" passHref>
+                  <SidebarItem>
+                    <FaTasks />
+                    Tasks
+                  </SidebarItem>
+                </Link>
+              </SidebarSection>
+              <SidebarSection>
+                <SidebarSectionHeading>Workspaces</SidebarSectionHeading>
+                <Link href="/people" passHref>
+                  <SidebarItem>
+                    <FaUsers />
+                    People
+                  </SidebarItem>
+                </Link>
+                <Link href="/companies" passHref>
+                  <SidebarItem>
+                    <FaBuilding />
+                    Companies
+                  </SidebarItem>
+                </Link>
+                <Link href="/opportunities" passHref>
+                  <SidebarItem>
+                    <FaBriefcase />
+                    Opportunities
+                  </SidebarItem>
+                </Link>
+                <Link href="/leads" passHref>
+                  <SidebarItem>
+                    <FaUserTie />
+                    Leads
+                  </SidebarItem>
+                </Link>
+              </SidebarSection>
+            </SidebarContent>
+          </div>
+        )}
+        {isSidebarOpen && (
+          <SideSupport>
+            Support <FaQuestionCircle />
+          </SideSupport>
+        )}
+      </Sidebar>
+      {/* <Main>{children}</Main> */}
+      <Main>main body</Main>
+    </Container>
+  );
+}
+
+const StyledHome = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #fff;
+`;
+const Caption = styled.div`
+  color: #fff;
+  font-size: 1.2rem;
+`;
+
+export default function Home() {
+  return (
+    <>
+      <StyledHome>
+        <span>Welcome to Twenty</span>
+        <Caption>click on a nav item to proceed</Caption>
+      </StyledHome>
+      ;
+    </>
+  );
+}
