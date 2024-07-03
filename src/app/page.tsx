@@ -396,10 +396,14 @@ const StyledHome = styled.div`
   font-size: 3rem;
   letter-spacing: 2px;
   color: #fff;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 const Caption = styled.div`
   color: #fff;
   font-size: 1.2rem;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 export default function Home() {

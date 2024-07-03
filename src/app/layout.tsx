@@ -18,6 +18,9 @@ import {
   FaUserTie,
   FaUsers,
   FaUser,
+  FaAppStore,
+  FaAppStoreIos,
+  FaApple,
 } from "react-icons/fa";
 import Link from "next/link";
 import SearchSidebarItem from "../app/components/SearchSidebarItem";
@@ -99,12 +102,16 @@ const ToggleButton = styled.div<SidebarProps>`
   margin-left: ${(props) => (props.isSidebarOpen ? "auto" : "0")};
 `;
 
-const Logo = styled.img<SidebarProps>`
-  /* font-size: 1.5rem; */
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
+const Logo = styled.span<SidebarProps>`
+  font-size: 1.5rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   display: ${(props) => (props.isSidebarOpen ? "block" : "none")};
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const Title = styled(Link)<SidebarProps>`
@@ -205,10 +212,9 @@ export default function RootLayout({
                   width: "100%",
                 }}
               >
-                <Logo
-                  isSidebarOpen={isSidebarOpen}
-                  src="https://img.icons8.com/?size=100&id=30840&format=png&color=FFFFFF"
-                />
+                <Logo isSidebarOpen={isSidebarOpen}>
+                  <FaApple />
+                </Logo>
                 <Title href="/" isSidebarOpen={isSidebarOpen}>
                   Twenty
                 </Title>
