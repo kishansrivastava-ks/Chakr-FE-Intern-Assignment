@@ -10,6 +10,8 @@ const Container = styled.div`
   color: ${({ theme }) => theme.color};
   background-color: ${({ theme }) => theme.background};
   background: #1c1c1c;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const Section = styled.div`

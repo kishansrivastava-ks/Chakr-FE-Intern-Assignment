@@ -114,6 +114,8 @@ const TabsHeader = styled.div`
   justify-content: space-around;
   background-color: #171717;
   /* padding: 0.5rem 0; */
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const Tab = styled.div`
@@ -123,10 +125,13 @@ const Tab = styled.div`
   gap: 0.3rem;
   padding: 0.5rem;
   font-size: 0.8rem;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 
   &.active {
-    border-bottom: 2px solid #fff;
-    color: #fff;
+    color: ${({ theme }) => theme.color};
+    background: ${({ theme }) => theme.background};
+    border-bottom: 2px solid ${({ theme }) => theme.color};
   }
 `;
 

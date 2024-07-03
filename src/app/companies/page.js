@@ -19,6 +19,8 @@ const Header = styled.div`
   background-color: #171717;
   color: #fff;
   font-size: 0.9rem;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const HeaderLeft = styled.div`
@@ -76,6 +78,8 @@ const Body = styled.div`
   overflow: auto;
   padding: 1rem;
   background-color: #171717;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   /* overflow-y: scroll; */
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -124,6 +128,8 @@ const FixedColumn = styled.th`
   position: sticky;
   left: 0;
   background-color: #171717;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const FixedColumnData = styled.td`
@@ -134,6 +140,8 @@ const FixedColumnData = styled.td`
   }
   left: 0;
   background-color: #171717;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   /* z-index: 1; */
 `;
 

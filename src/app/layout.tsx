@@ -42,6 +42,8 @@ const Container = styled.div<SidebarProps>`
   height: 100vh;
   background-color: #f5f5f5;
   transition: grid-template-columns 0.3s ease-in-out;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const Sidebar = styled.div<SidebarProps>`
@@ -49,6 +51,8 @@ const Sidebar = styled.div<SidebarProps>`
   background-color: #333;
   background-color: #1c1c1c;
   color: white;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -62,6 +66,8 @@ const Header = styled.header`
   background-color: #333;
   background-color: #1c1c1c;
   color: white;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
@@ -79,6 +85,8 @@ const Main = styled.main`
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 
   &::-webkit-scrollbar {
     display: none;

@@ -21,12 +21,15 @@ import Accounts from "../components/settings/Accounts";
 import Calendars from "../components/settings/Calendars";
 import Appearance from "../components/settings/Appearance";
 import Emails from "../components/settings/Emails";
+import Link from "next/link";
 
 const Container = styled.div`
   display: flex;
   height: 100vh;
   background-color: #333;
   color: #fff;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const LeftColumn = styled.div`
@@ -35,6 +38,8 @@ const LeftColumn = styled.div`
   background: #444;
   background: #171717;
   overflow-y: auto;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const RightColumn = styled.div`
@@ -42,6 +47,8 @@ const RightColumn = styled.div`
   padding: 1rem;
   overflow-y: auto;
   background: #1c1c1c;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   /* height: 100%; */
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -130,10 +137,10 @@ export default function Page() {
     <Container>
       <LeftColumn>
         {/* <Heading onClick={() => history.goBack()}> */}
-        <Heading onClick={() => history.goBack()}>
-          <span style={{ fontSize: "1rem", marginRight: "1rem" }}>
+        <Heading>
+          <Link href="/" style={{ fontSize: "1rem", marginRight: "1rem" }}>
             <FaArrowLeft />
-          </span>
+          </Link>
           <span>Settings</span>
         </Heading>
 

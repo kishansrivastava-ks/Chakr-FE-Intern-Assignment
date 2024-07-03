@@ -11,6 +11,8 @@ const Container = styled.div`
   overflow-y: auto;
   height: 100%;
   width: 100%;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   -ms-overflow-style: none;
   scrollbar-width: none;
 
@@ -21,6 +23,8 @@ const Container = styled.div`
 
 const Section = styled.div`
   margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const Title = styled.h3`
@@ -34,6 +38,8 @@ const InfoText = styled.p`
   font-size: 0.875rem;
   color: #ccc;
   margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   /* margin-left: 5rem; */
 `;
 
@@ -44,6 +50,8 @@ const Input = styled.input`
   background: #444;
   border: 1px solid #575757;
   color: #fff;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   border-radius: 5px;
   ::placeholder {
     color: #ccc;
@@ -83,6 +91,19 @@ const ProfilePicture = styled.div`
     font-size: 2rem;
     margin-right: 0.5rem;
   }
+  & > span {
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    padding-right: 0.5rem;
+    border-radius: 5px;
+    color: ${({ theme }) => theme.color};
+    background: ${({ theme }) => theme.background};
+    border: 1px solid ${({ theme }) => theme.color};
+  }
 `;
 
 const NameInputs = styled.div`
@@ -104,19 +125,7 @@ function Profile() {
           Picture
         </Title>
         <ProfilePicture>
-          <span
-            style={{
-              margin: "1rem",
-              backgroundColor: "#333",
-              padding: "1rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              aspectRatio: "1 / 1",
-              paddingRight: "0.5rem",
-              borderRadius: "3px",
-            }}
-          >
+          <span>
             <FaUser />
           </span>
           <div>

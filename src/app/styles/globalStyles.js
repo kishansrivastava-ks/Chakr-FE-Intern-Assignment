@@ -14,6 +14,10 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color};
     text-decoration: none;
   }
+  div{
+    color: ${({ theme }) => theme.color};
+    background: ${({ theme }) => theme.background};
+  }
 
   input, button {
     color: ${({ theme }) => theme.color};
