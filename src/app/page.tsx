@@ -171,7 +171,7 @@ const SidebarSectionHeading = styled.h4`
 //   }
 // };
 
-export default function Home({ children }: HomeProps) {
+export const Home = ({ children }: HomeProps) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   // const router = useRouter();
 
@@ -276,4 +276,4 @@ export default function Home({ children }: HomeProps) {
       <Main>{children}</Main>
     </Container>
   );
-}
+};
