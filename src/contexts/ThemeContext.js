@@ -24,7 +24,7 @@ const themes = {
 const ThemeContext = createContext();
 
 export const ThemeProviderWrapper = ({ children }) => {
-  const [theme, setTheme] = useState(themes.light);
+  const [theme, setTheme] = useState(themes.dark);
 
   const changeTheme = (themeName) => {
     setTheme(themes[themeName]);
