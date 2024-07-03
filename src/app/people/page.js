@@ -8,6 +8,8 @@ import {
   FaEllipsisV,
   FaTrashAlt,
   FaFileExport,
+  FaPlusCircle,
+  FaUsers,
 } from "react-icons/fa";
 import usersData from "../data/users.json";
 
@@ -192,6 +194,29 @@ const Button = styled.button`
   }
 `;
 
+const PageHeader = styled.div`
+  position: absolute;
+  top: 20px;
+  /* right: 20px; */
+  width: 10rem;
+  margin-left: 1rem;
+`;
+
+const PeopleIcon = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.color};
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 export default function Page() {
   const [users, setUsers] = useState(usersData);
   const [filteredUsers, setFilteredUsers] = useState(usersData);
@@ -278,6 +303,12 @@ export default function Page() {
 
   return (
     <Container>
+      <PageHeader>
+        <PeopleIcon>
+          <FaUsers />
+          People
+        </PeopleIcon>
+      </PageHeader>
       <Header>
         <HeaderLeft>
           <FaUser size={15} />

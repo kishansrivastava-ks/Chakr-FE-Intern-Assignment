@@ -123,6 +123,27 @@ const CreateTaskButton = styled.button`
 
 // Modal.setAppElement("#root");
 
+const Header = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+`;
+
+const AddTaskButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.color};
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 export default function Page() {
   const [tasks, setTasks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -163,6 +184,12 @@ export default function Page() {
 
   return (
     <Container>
+      <Header>
+        <AddTaskButton onClick={handleAddTask}>
+          <FaPlusCircle />
+          Add Task
+        </AddTaskButton>
+      </Header>
       {tasks.length === 0 ? (
         <NoTasksContainer onClick={handleAddTask}>
           <span style={{ display: "flex", gap: "1rem" }}>

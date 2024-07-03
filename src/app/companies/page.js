@@ -145,9 +145,38 @@ const FixedColumnData = styled.td`
   /* z-index: 1; */
 `;
 
+const PageHeader = styled.div`
+  position: absolute;
+  top: 20px;
+  /* right: 20px; */
+  width: 10rem;
+  margin-left: 1rem;
+`;
+
+const CompaniesIcon = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.color};
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 export default function CompaniesPage() {
   return (
     <Container>
+      <PageHeader>
+        <CompaniesIcon>
+          <FaBuilding />
+          Companies{" "}
+        </CompaniesIcon>
+      </PageHeader>
       <Header>
         <HeaderLeft>
           <FaBuilding size={15} />
