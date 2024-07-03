@@ -212,6 +212,17 @@ const Modal = ({ isOpen, onClose, users, onSearch, recentSearch }) => {
         {recentSearch && (
           <RecentSearch>Most recently searched: {recentSearch}</RecentSearch>
         )}
+        <p
+          style={{
+            color: "#666",
+            fontSize: "0.7rem",
+            marginLeft: "auto",
+            textAlign: "right",
+            // backgroundColor: "red",
+          }}
+        >
+          Press Esc to exit
+        </p>
       </ModalContent>
     </ModalOverlay>
   );

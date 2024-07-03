@@ -120,6 +120,7 @@ const AddIcon = styled.div`
 `;
 const SideSupport = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -272,7 +273,21 @@ export default function RootLayout({
               )}
               {isSidebarOpen && (
                 <SideSupport>
-                  Support <FaQuestionCircle />
+                  <span style={{ fontSize: "0.8rem", color: "#666" }}>
+                    Press Ctrl + k to open command pannel
+                  </span>
+                  <span
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      width: "100%",
+                      marginTop: "0.5rem",
+                    }}
+                  >
+                    {" "}
+                    Support <FaQuestionCircle />
+                  </span>
                 </SideSupport>
               )}
             </Sidebar>
