@@ -125,8 +125,8 @@ const TableBody = styled.tbody`
 `;
 
 const FixedColumn = styled.th`
-  position: sticky;
-  left: 0;
+  /* position: sticky; */
+  /* left: 0; */
   background-color: #171717;
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.background};

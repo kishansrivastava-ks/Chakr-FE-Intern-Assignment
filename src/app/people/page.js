@@ -122,11 +122,14 @@ const TableBody = styled.tbody`
     font-size: 0.8rem;
     /* background-color: yellow; */
     height: 3rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     &:hover {
       /* background-color: #2a2a2a; */
       cursor: pointer;
     }
+    /* border-bottom: 1px solid #fff;
+    padding: 1rem;
+    margin: 0.5rem 0; */
   }
 
   td {
@@ -137,8 +140,8 @@ const TableBody = styled.tbody`
 `;
 
 const FixedColumn = styled.th`
-  position: sticky;
-  left: 0;
+  /* position: sticky;
+  left: 0; */
   background-color: #171717;
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.background};
