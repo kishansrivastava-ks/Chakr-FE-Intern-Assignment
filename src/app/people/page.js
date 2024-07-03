@@ -222,6 +222,7 @@ const PageHeader = styled.div`
       transition: all 0.2s ease;
     }
   }
+  z-index: 100;
 `;
 
 const PeopleIcon = styled.button`
@@ -714,13 +715,14 @@ export default function Page() {
             ))}
           </TableBody>
         </Table>
+        <AddUserModal
+          isOpen={isNewUserModalOpen}
+          onClose={() => setNewUserModalOpen(false)}
+          onSave={handleAddUser}
+        />
       </Body>
       {/* Modal for adding new user */}
-      <AddUserModal
-        isOpen={isNewUserModalOpen}
-        onClose={() => setNewUserModalOpen(false)}
-        onSave={handleAddUser}
-      />
+
       {selectedUsers.length > 0 && (
         <PopupFooter>
           <Button onClick={handleDelete}>
