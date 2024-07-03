@@ -10,6 +10,7 @@ import {
   FaFileExport,
   FaPlusCircle,
   FaUsers,
+  FaPlus,
 } from "react-icons/fa";
 import usersData from "../data/users.json";
 
@@ -197,9 +198,27 @@ const Button = styled.button`
 const PageHeader = styled.div`
   position: absolute;
   top: 20px;
-  /* right: 20px; */
-  width: 10rem;
+  width: 81.5%;
   margin-left: 1rem;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > span {
+    background: ${({ theme }) => theme.background};
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    &:hover {
+      background: ${({ theme }) => theme.background};
+      background: lightgray;
+      transition: all 0.2s ease;
+    }
+  }
 `;
 
 const PeopleIcon = styled.button`
@@ -211,11 +230,252 @@ const PeopleIcon = styled.button`
   color: ${({ theme }) => theme.color};
   font-size: 1.2rem;
   cursor: pointer;
-
   &:hover {
     opacity: 0.8;
   }
 `;
+
+// 🔴🔴🔴🔴
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+  background-color: ${({ theme }) => theme.background};
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 60rem;
+`;
+
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.color};
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #888;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0.5rem;
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 15px;
+`;
+
+const Label = styled.label`
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+const Input = styled.input`
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.background};
+`;
+
+const AddUserButton = styled.button`
+  padding: 0.5rem 3rem;
+  /* background-color: #007bff; */
+  color: #${({ theme }) => theme.color};
+  border: none;
+  border-radius: 5px;
+  width: max-content;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: auto;
+  border: 1px solid ${({ theme }) => theme.color};
+`;
+const AddUserForm = styled.div`
+  position: fixed;
+  /* top: 50%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+  width: 100rem;
+  height: 20rem;
+  background-color: red;
+`;
+
+const AddUserModal = ({ isOpen, onClose, onSave }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [creationDate, setCreationDate] = useState("");
+  const [city, setCity] = useState("");
+  const [address, setAddress] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name,
+      email,
+      company,
+      creationDate,
+      city,
+      address,
+      jobTitle,
+      mobile,
+      status,
+    };
+    onSave(newUser);
+  };
+
+  // Reset state and close modal
+  const handleClose = () => {
+    setName("");
+    setEmail("");
+    setCompany("");
+    setCreationDate("");
+    setCity("");
+    setAddress("");
+    setJobTitle("");
+    setMobile("");
+    setStatus("");
+    onClose();
+  };
+
+  // Close modal on Escape key press
+  const handleKeyPress = (e) => {
+    if (e.key === "Escape") {
+      handleClose();
+    }
+  };
+
+  return (
+    <>
+      {isOpen && (
+        <ModalOverlay onClick={handleClose}>
+          <ModalContent
+            onClick={(e) => e.stopPropagation()}
+            onKeyPress={handleKeyPress}
+          >
+            <ModalHeader>
+              <h2>Add User</h2>
+              <CloseButton onClick={handleClose}>&times;</CloseButton>
+            </ModalHeader>
+            <Form onSubmit={handleSubmit}>
+              <FormGroup>
+                {/* <Label>Name</Label> */}
+                <Input
+                  placeholder="Name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Email</Label> */}
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Company</Label> */}
+                <Input
+                  placeholder="Company"
+                  type="text"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Creation Date</Label> */}
+                <Input
+                  placeholder="Creation Date"
+                  type="text"
+                  value={creationDate}
+                  onChange={(e) => setCreationDate(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>City</Label> */}
+                <Input
+                  placeholder="City"
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Address</Label> */}
+                <Input
+                  placeholder="Address"
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Job Title</Label> */}
+                <Input
+                  placeholder="Job Title"
+                  type="text"
+                  value={jobTitle}
+                  onChange={(e) => setJobTitle(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Mobile</Label> */}
+                <Input
+                  placeholder="Mobile"
+                  type="text"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/* <Label>Status</Label> */}
+                <Input
+                  placeholder="Status"
+                  type="text"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+              </FormGroup>
+              <AddUserButton type="submit">Add</AddUserButton>
+            </Form>
+          </ModalContent>
+        </ModalOverlay>
+      )}
+    </>
+  );
+};
+// 🔴🔴
 
 export default function Page() {
   const [users, setUsers] = useState(usersData);
@@ -226,6 +486,7 @@ export default function Page() {
   const [sortField, setSortField] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
+  const [isNewUserModalOpen, setNewUserModalOpen] = useState(false);
 
   const handleFilterChange = (field) => {
     setFilterField(field);
@@ -301,6 +562,14 @@ export default function Page() {
     };
   }, []);
 
+  // 🔴🔴
+  const handleAddUser = (newUser) => {
+    const updatedUsers = [...users, newUser];
+    setUsers(updatedUsers);
+    setFilteredUsers(updatedUsers);
+    setNewUserModalOpen(false);
+  };
+
   return (
     <Container>
       <PageHeader>
@@ -308,6 +577,9 @@ export default function Page() {
           <FaUsers />
           People
         </PeopleIcon>
+        <span onClick={() => setNewUserModalOpen(true)}>
+          <FaPlus />
+        </span>
       </PageHeader>
       <Header>
         <HeaderLeft>
@@ -440,6 +712,12 @@ export default function Page() {
           </TableBody>
         </Table>
       </Body>
+      {/* Modal for adding new user */}
+      <AddUserModal
+        isOpen={isNewUserModalOpen}
+        onClose={() => setNewUserModalOpen(false)}
+        onSave={handleAddUser}
+      />
       {selectedUsers.length > 0 && (
         <PopupFooter>
           <Button onClick={handleDelete}>
