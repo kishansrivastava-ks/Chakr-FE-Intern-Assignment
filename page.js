@@ -1,5 +1,4 @@
 "use client";
-// "eslint-disabled";
 import { useState } from "react";
 import styled from "styled-components";
 import {
@@ -13,23 +12,10 @@ import {
   FaTasks,
   FaUserTie,
   FaUsers,
-  FaUser,
 } from "react-icons/fa";
 import Link from "next/link";
-// import { useRouter } from "next/router";
-import SearchSidebarItem from "../app/components/SearchSidebarItem";
-// import { useRouter } from "next/router";
-// import { FaBuilding, FaUser, FaBriefcase, FaPlus } from "react-icons/fa";
-import { ReactNode } from "react";
 
-interface SidebarProps {
-  isSidebarOpen: boolean;
-}
-interface HomeProps {
-  children: ReactNode;
-}
-
-const Container = styled.div<SidebarProps>`
+const Container = styled.div`
   display: grid;
   grid-template-areas:
     "sidebar header"
@@ -41,10 +27,9 @@ const Container = styled.div<SidebarProps>`
   transition: grid-template-columns 0.3s ease-in-out;
 `;
 
-const Sidebar = styled.div<SidebarProps>`
+const Sidebar = styled.div`
   grid-area: sidebar;
   background-color: #333;
-  background-color: #1c1c1c;
   color: white;
   padding: 20px;
   display: flex;
@@ -57,7 +42,6 @@ const Sidebar = styled.div<SidebarProps>`
 const Header = styled.header`
   grid-area: header;
   background-color: #333;
-  background-color: #1c1c1c;
   color: white;
   padding: 0 20px;
   display: flex;
@@ -67,28 +51,20 @@ const Header = styled.header`
 
 const Main = styled.main`
   grid-area: main;
+  padding: 20px;
+  background-color: #e0e0e0;
   background-color: #161414;
-  background-color: #171717;
+  /* margin: 5px; */
+  /* border-radius: 3px; */
   border: 5px solid #333;
-  border: 5px solid #171717;
-  /* height: 89vh; */
-  /* width: 84vw; */
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* background-color: red; */
 `;
 
-const ToggleButton = styled.div<SidebarProps>`
+const ToggleButton = styled.div`
   cursor: pointer;
   margin-left: ${(props) => (props.isSidebarOpen ? "auto" : "0")};
 `;
 
-const Logo = styled.img<SidebarProps>`
+const Logo = styled.img`
   /* font-size: 1.5rem; */
   width: 20px;
   height: 20px;
@@ -96,7 +72,7 @@ const Logo = styled.img<SidebarProps>`
   display: ${(props) => (props.isSidebarOpen ? "block" : "none")};
 `;
 
-const Title = styled.div<SidebarProps>`
+const Title = styled.div`
   font-size: 1rem;
   display: ${(props) => (props.isSidebarOpen ? "block" : "none")};
 `;
@@ -157,29 +133,12 @@ const SidebarSection = styled.div`
 const SidebarSectionHeading = styled.h4`
   margin-bottom: 1rem;
 `;
-
-// const getTitleAndIcon = (pathname) => {
-//   switch (pathname) {
-//     case "/people":
-//       return { title: "People", icon: <FaUser /> };
-//     case "/companies":
-//       return { title: "Companies", icon: <FaBuilding /> };
-//     case "/jobs":
-//       return { title: "Jobs", icon: <FaBriefcase /> };
-//     default:
-//       return { title: "Dashboard", icon: <FaUser /> }; // Default case
-//   }
-// };
-
-export default function Home({ children }: HomeProps) {
+export default function Page({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-  // const router = useRouter();
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
-
-  // const { title, icon } = getTitleAndIcon(router.pathname);
 
   return (
     <Container isSidebarOpen={isSidebarOpen}>
@@ -223,13 +182,12 @@ export default function Home({ children }: HomeProps) {
                     Settings
                   </SidebarItem>
                 </Link>
-                {/* <Link href="/search" passHref>
+                <Link href="/search" passHref>
                   <SidebarItem>
                     <FaSearch />
                     Search
                   </SidebarItem>
-                </Link> */}
-                <SearchSidebarItem />
+                </Link>
                 <Link href="/tasks" passHref>
                   <SidebarItem>
                     <FaTasks />
@@ -277,3 +235,5 @@ export default function Home({ children }: HomeProps) {
     </Container>
   );
 }
+
+// export default Page;
