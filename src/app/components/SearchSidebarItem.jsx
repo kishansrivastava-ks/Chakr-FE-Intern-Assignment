@@ -50,6 +50,8 @@ const ModalContent = styled.div`
   width: 80%;
   max-width: 600px;
   color: #fff;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const SearchBar = styled.input`
@@ -60,6 +62,8 @@ const SearchBar = styled.input`
   /* border: 1px solid #333; */
   background: #1f1f1f;
   color: #fff;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 
   &:focus {
     outline: none;
@@ -87,6 +91,8 @@ const NavLinkItem = styled(Link)`
   transition: background 0.1s;
   /* background-color: red; */
   font-size: 0.8rem;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -101,6 +107,8 @@ const SearchResults = styled.div`
   /* background-color: lightblue; */
   height: 15rem;
   overflow-y: auto;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   -ms-overflow-style: none;
   scrollbar-width: none;
 
@@ -114,6 +122,8 @@ const RecentSearch = styled.div`
   padding-top: 0.5rem;
   text-align: center;
   color: #ccc;
+  color: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
 `;
 
 const Modal = ({ isOpen, onClose, users, onSearch, recentSearch }) => {
