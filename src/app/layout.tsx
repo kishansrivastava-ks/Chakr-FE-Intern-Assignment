@@ -24,6 +24,7 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import SearchSidebarItem from "../app/components/SearchSidebarItem";
+// import HeaderComponent from "../app/components/HeaderComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -79,10 +80,10 @@ const Header = styled.header`
 
 const Main = styled.main`
   grid-area: main;
-  background-color: #161414;
-  background-color: #171717;
-  border: 5px solid #333;
-  border: 5px solid #171717;
+  /* background-color: #161414;
+  background-color: #171717; */
+  /* border: 5px solid #333; */
+  /* border: 5px solid #171717; */
   /* height: 89vh; */
   /* width: 84vw; */
   overflow-y: scroll;
@@ -90,6 +91,7 @@ const Main = styled.main`
   scrollbar-width: none;
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.background};
+  border: 1px solid ${({ theme }) => theme.color};
 
   &::-webkit-scrollbar {
     display: none;
@@ -203,6 +205,7 @@ export default function RootLayout({
               <AddIcon>
                 <FaPlus />
               </AddIcon>
+              {/* <HeaderComponent /> */}
             </Header>
             <Sidebar isSidebarOpen={isSidebarOpen}>
               <div
