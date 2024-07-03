@@ -97,7 +97,7 @@ const Table = styled.table`
 
 const TableHead = styled.thead`
   th {
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #333;
     min-width: 7rem;
     width: max-content;
@@ -110,7 +110,7 @@ const TableBody = styled.tbody`
     font-size: 0.8rem;
     /* background-color: yellow; */
     height: 3rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     &:hover {
       /* background-color: #2a2a2a; */
       cursor: pointer;
@@ -119,8 +119,11 @@ const TableBody = styled.tbody`
 
   td {
     /* padding: 0.5rem; */
-    border-bottom: 1px solid #333;
-    margin-right: 5rem;
+    /* border-bottom: 1px solid #333;
+    margin-right: 5rem; */
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+    text-align: center;
   }
 `;
 
